@@ -1,24 +1,25 @@
-
-<div class="overlay"></div>
-<!-- #END# Overlay For Sidebars -->
-<!-- Search Bar -->
-<div class="search-bar">
-    <div class="search-icon">
-        <i class="material-icons">search</i>
-    </div>
-    <input type="text" placeholder="START TYPING...">
-    <div class="close-search">
-        <i class="material-icons">close</i>
-    </div>
-</div>
-
-
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="../../index.html">TRON - smart</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">
+                <img src="<?php echo base_url('assets/images/logo_tronsmart.jpg'); ?>">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="<?php echo base_url('index.php/pendaftaran'); ?>" class="js-right-sidebar" data-close="true">
+                        <button class="btn btn-danger waves-effect">Claim Garansi</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="js-modal-buttons">
+                        <button type="button" data-color="white" class="js-modal-buttons btn bg-red waves-effect">Login</button>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

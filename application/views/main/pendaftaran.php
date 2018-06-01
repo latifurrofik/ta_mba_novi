@@ -1,7 +1,7 @@
 <section class="content">
   <div class="container-fluid">
     <div class="body">
-        <div id="form_pendaftaran_garansi" class="">
+        <div id="form_pendaftaran_garansi">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
@@ -11,8 +11,7 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <form class="form-horizontal">
-
+                        <form class="form-horizontal" action="<?php echo base_url('index.php/pendaftaran/claim_garansi'); ?>" method="POST">
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                     <label for="email_address_2">Nama</label>
@@ -20,7 +19,33 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="NAMA" class="form-control">
+                                            <input type="text" name="NAMA" class="form-control" placeholder=".....">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="email_address_2">Email</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" name="EMAIL" class="form-control" placeholder=".....">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="email_address_2">No. Telepon</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" name="NOTELP" class="form-control" placeholder=".....">
                                         </div>
                                     </div>
                                 </div>
@@ -33,20 +58,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" id="ALAMAT" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="email_address_2">Tanggal Mendaftar</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" id="TANGGAL" class="form-control">
+                                            <input type="text" name="ALAMAT" class="form-control" placeholder=".....">
                                         </div>
                                     </div>
                                 </div>
@@ -68,10 +80,34 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="email_address_2">Merk Barang</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <select class="form-control show-tick" name="MERKID">
+                                            <option value="">-- Pilih --</option> 
+                                            <?php
+                                                foreach ($barang as $key) {
+                                                    echo "
+                                                        <option value=".$key['BARANGID'].">".$key['DESKRIPSI']."</option>
+                                                    ";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             
                             <div class="row clearfix">
                                 <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                    <button type="button" class="btn btn-success m-t-15 waves-effect">Daftar</button>
+                                    <div class="container-fluid pull-right">
+                                        <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Claim">
+                                        <input type="reset" class="btn btn-danger m-t-15 waves-effect" value="Batal">
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </form>

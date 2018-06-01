@@ -91,8 +91,8 @@ function showWithCustomIconMessage() {
 
 function showHtmlMessage() {
     swal({
-        title: "HTML <small>Title</small>!",
-        text: "A custom <span style=\"color: #CC0000\">html<span> message.",
+        title: "Silahkan Masuk",
+        text: "",
         html: true
     });
 }
@@ -108,13 +108,12 @@ function showAutoCloseTimerMessage() {
 
 function showPromptMessage() {
     swal({
-        title: "An input!",
-        text: "Write something interesting:",
+        title: "Silahkan Masuk",
         type: "input",
         showCancelButton: true,
         closeOnConfirm: false,
         animation: "slide-from-top",
-        inputPlaceholder: "Write something"
+        inputPlaceholder: "Username"
     }, function (inputValue) {
         if (inputValue === false) return false;
         if (inputValue === "") {
