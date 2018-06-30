@@ -33,4 +33,9 @@ class Pendaftaran extends CI_Controller {
 			
 		}
 	}
+
+	function get_notif(){
+		$res = $this->m_claim->get_notif()->result_array();
+		return (string)$res[0]["TOKEN"];
+	}
 }

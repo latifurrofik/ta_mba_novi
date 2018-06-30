@@ -19,6 +19,9 @@
   <link href="<?php echo base_url().'assets/plugins/node-waves/waves.css'; ?>" rel="stylesheet" />
   <link href="<?php echo base_url().'assets/plugins/animate-css/animate.css'; ?>" rel="stylesheet" />
   <link href="<?php echo base_url().'assets/plugins/sweetalert/sweetalert.css'; ?>" rel="stylesheet" />
+  <link href="<?php echo base_url().'assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'; ?>" rel="stylesheet">
+
+  <script src="<?php echo base_url().'assets/plugins/jquery/jquery.min.js'; ?>"></script>
   
 </head>
 <body class="theme-red nopadding">

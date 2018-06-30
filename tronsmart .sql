@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 01, 2018 at 04:06 PM
+-- Generation Time: Jun 30, 2018 at 04:36 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -67,11 +67,11 @@ INSERT INTO `tbl_barang` (`BARANGID`, `NAMA`, `SERIAL`, `DESKRIPSI`, `GAMBAR`, `
 (3, 'BEELINK', 'S912BKKE30305', 'Beelink GT1 Android TV Box Octa Core Amlogic S912 - 2GB+16GB', 'belink_gt1_android.jpg', 0),
 (4, 'MINI TV BOX SERIES', '905XAKJH70026', 'Mini M8S II 4K Smart Android TV Box Amlogic S905X ROM OS Marshmallow 6.0 - Ver. 2GB', 'mini_m8s.jpg', 0),
 (5, 'MEDE8ER', 'M140031KB002420', 'Mede8er med800X3D - 3D FULL ', 'mede8er.jpg', 0),
-(6, 'AC Ryan', 'M140006K6000267', 'AC Ryan pv73920 Playon HD Mini 3', 'ac_ryan_pv73920.jpg', 0),
+(6, 'AC RYAN', 'M140006K6000267', 'AC Ryan pv73920 Playon HD Mini 3', 'ac_ryan_pv73920.jpg', 0),
 (7, 'AC RYAN', 'M110395EV0949', 'AC Ryan  pv73500 Playon HD-Essential', 'ac_ryan_pv73500.jpg', 0),
 (8, 'AC RYAN \r\n', 'M140041M3000077', 'AC RYAN Playon HD 2', 'ac_ryan_playon.jpg', 0),
 (9, 'AC RYAN ', 'M140041M3000077', 'AC Ryan -pv73901- Playon HD 3', 'ac_ryan_pv73901.jpg', 0),
-(10, 'Tronsmart', 'Z368BAKF1016816G', 'Tronsmart Orion R68 Meta mini PC\r\n', 'tronsmart_orion_r68.jpg', 0);
+(10, 'TRONSMART', 'Z368BAKF1016816G', 'Tronsmart Orion R68 Meta mini PC\r\n', 'tronsmart_orion_r68.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -88,15 +88,18 @@ CREATE TABLE `tbl_pendaftar` (
   `TANGGAL` date NOT NULL,
   `BARANGID` int(5) NOT NULL,
   `TIPEID` int(11) NOT NULL,
-  `TOKEN` varchar(6) NOT NULL
+  `TOKEN` varchar(6) NOT NULL,
+  `VERIFIKASI` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_pendaftar`
 --
 
-INSERT INTO `tbl_pendaftar` (`PENDAFTARID`, `NAMA`, `EMAIL`, `NOTELP`, `ALAMAT`, `TANGGAL`, `BARANGID`, `TIPEID`, `TOKEN`) VALUES
-(4, 'Novi', 'novia@gmail.com', '08918292891', 'Jakarta Selatan', '2018-06-01', 3, 3, '000001');
+INSERT INTO `tbl_pendaftar` (`PENDAFTARID`, `NAMA`, `EMAIL`, `NOTELP`, `ALAMAT`, `TANGGAL`, `BARANGID`, `TIPEID`, `TOKEN`, `VERIFIKASI`) VALUES
+(4, 'Novi', 'novia@gmail.com', '08918292891', 'Jakarta Selatan', '2018-06-01', 3, 3, '000001', 0),
+(5, 'Rofik', 'rofik@gmail.com', '012891218', 'Banjarnegara', '2018-06-03', 4, 2, '000002', 0),
+(6, 's', 's', 's', 's', '2018-06-27', 3, 3, '000003', 0);
 
 -- --------------------------------------------------------
 
@@ -165,7 +168,7 @@ ALTER TABLE `tbl_barang`
 -- AUTO_INCREMENT for table `tbl_pendaftar`
 --
 ALTER TABLE `tbl_pendaftar`
-  MODIFY `PENDAFTARID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `PENDAFTARID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

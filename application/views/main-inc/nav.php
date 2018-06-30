@@ -15,9 +15,24 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="js-modal-buttons">
-                        <button type="button" data-color="white" class="js-modal-buttons btn bg-red waves-effect">Login</button>
-                    </a>
+
+                    <?php
+                    if ($this->session->userdata("ISLOGIN") == true) {
+                        echo '
+                            <a href="'.base_url("index.php/logout").'">
+                                <button type="button" data-color="white" class="btn bg-red waves-effect">Log Out</button>
+                            </a>
+                        ';
+                    } else {
+                        echo '
+                            <a href="#" class="js-modal-buttons">
+                                <button type="button" data-color="white" class="js-modal-buttons btn bg-red waves-effect">Login</button>
+                            </a>
+                        ';
+                    }
+                    ?>
+
+
                 </li>
             </ul>
         </div>

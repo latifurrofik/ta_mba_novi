@@ -14,6 +14,22 @@ class Login extends CI_Controller {
 		);
 		$res = $this->M_login->cek_login($params);
 
-		
+		if ($res > 0) {
+			$this->session->set_userdata(
+				array(
+					"USERNAME" => $params['USERNAME'],
+					"PASSWORD" => $params['PASSWORD'],
+					"ISLOGIN" => true
+				)
+			);
+		} else {
+			$this->session->set_userdata(
+				array(
+					"ISLOGIN" => false
+				)
+			);
+		}
+		redirect();
 	}
+
 }

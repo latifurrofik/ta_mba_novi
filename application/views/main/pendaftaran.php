@@ -5,11 +5,11 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
+                    <!-- <div class="header">
                         <h2>
                             Pendaftaran Garansi
                         </h2>
-                    </div>
+                    </div> -->
                     <div class="body">
                         <form class="form-horizontal" action="<?php echo base_url('index.php/pendaftaran/claim_garansi'); ?>" method="POST">
                             <div class="row clearfix">
@@ -80,7 +80,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                     <label for="email_address_2">Merk Barang</label>
@@ -104,9 +103,8 @@
                             <div class="row clearfix">
                                 <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                     <div class="container-fluid pull-right">
-                                        <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Claim">
+                                        <input type="button" class="btn btn-success m-t-15 waves-effect" value="Claim" id="btn_claim">
                                         <input type="reset" class="btn btn-danger m-t-15 waves-effect" value="Batal">
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -119,3 +117,21 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+    $("#btn_claim").click(function(){
+        $.ajax({
+            url : "<?php echo base_url('index.php/pendaftaran/get_notif'); ?>",
+            type : "POST",
+            beforeSend : function(xhr){
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+            }
+        })
+        .done(function(data){
+            if (console && console.log) {
+                console.log("Token : ", +data);
+            }
+        });
+    })
+
+</script>

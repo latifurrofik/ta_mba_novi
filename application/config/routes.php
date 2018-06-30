@@ -59,3 +59,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['pendaftaran'] 			= 'Main/pendaftaran';
+$route['logout'] 			= 'Main/logout';
