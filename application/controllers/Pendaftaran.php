@@ -6,6 +6,7 @@ class Pendaftaran extends CI_Controller {
 		parent::__construct();
 		$this->load->database();
 		$this->load->model('m_claim');
+		$this->load->model('m_barang');
 	}
 	
 	function claim_garansi (){
@@ -28,14 +29,35 @@ class Pendaftaran extends CI_Controller {
 		$res = $this->m_claim->claim_garansi($params);
 
 		if ($res) {
+			$data  = array(
+				'barang' => $this->m_barang->get()->result_array()
+			);
+			// $this->template->display('main/public', $data);
 			redirect();
 		} else {
 			
 		}
 	}
 
+	function cari_token(){
+		$token = $this->input->post('TOKEN');
+		$res = $this->m_barang->get_by_token($token)->result_array();
+
+		
+		if ($res != array()) {
+			$data = array(
+				"claim" => $res
+			);
+			$this->template->display('main/tracking', $data);
+		} else {
+			redirect();
+		}		
+
+	}
+
 	function get_notif(){
 		$res = $this->m_claim->get_notif()->result_array();
-		return (string)$res[0]["TOKEN"];
+		$token = (string)$res[0]["TOKEN"];
+		echo json_encode($token);
 	}
 }

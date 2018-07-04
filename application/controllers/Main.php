@@ -39,8 +39,22 @@ class Main extends CI_Controller {
 		return $res->result_array();
 	}
 
-	function verifikasi($id = 0 ){
+	function verifikasi(){
+		$pendaftarid = $this->input->get('id');
+		$res = $this->M_claim->verifikasi($pendaftarid);
+		if($res){
+			redirect();
+		}
+	}
 
+	function progress(){
+		$pendaftarid = $this->input->get('pendaftarid');
+		$progressid = $this->input->get('progressid');
+
+		$res = $this->M_claim->progress($pendaftarid, $progressid);
+		if($res){
+			redirect();
+		}
 	}
 
 	function logout(){

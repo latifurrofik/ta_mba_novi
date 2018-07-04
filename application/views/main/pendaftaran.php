@@ -5,11 +5,6 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <!-- <div class="header">
-                        <h2>
-                            Pendaftaran Garansi
-                        </h2>
-                    </div> -->
                     <div class="body">
                         <form class="form-horizontal" action="<?php echo base_url('index.php/pendaftaran/claim_garansi'); ?>" method="POST">
                             <div class="row clearfix">
@@ -103,7 +98,7 @@
                             <div class="row clearfix">
                                 <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                     <div class="container-fluid pull-right">
-                                        <input type="button" class="btn btn-success m-t-15 waves-effect" value="Claim" id="btn_claim">
+                                        <input type="submit" class="btn btn-success m-t-15 waves-effect" value="Claim" id="btn_claim">
                                         <input type="reset" class="btn btn-danger m-t-15 waves-effect" value="Batal">
                                     </div>
                                 </div>
@@ -118,6 +113,9 @@
   </div>
 </section>
 
+
+
+
 <script type="text/javascript">
     $("#btn_claim").click(function(){
         $.ajax({
@@ -128,10 +126,8 @@
             }
         })
         .done(function(data){
-            if (console && console.log) {
-                console.log("Token : ", +data);
-            }
+            localStorage.setItem('token', data);
+            // swal(data, "Silahkan ingat - ingat / simpan token diatas.", "success");
         });
-    })
-
+    });
 </script>

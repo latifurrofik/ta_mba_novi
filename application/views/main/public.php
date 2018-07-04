@@ -39,3 +39,21 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(window).on('load', function(){
+        $.ajax({
+            url : "<?php echo base_url('index.php/pendaftaran/get_notif'); ?>",
+            type : "POST",
+            beforeSend : function(xhr){
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+            }
+        })
+        .done(function(data){
+            if(localStorage.getItem('token') != data){
+                swal(data, "Silahkan ingat - ingat / simpan token diatas.", "success");
+                localStorage.setItem('token', data);
+            }
+        });
+    });
+</script>

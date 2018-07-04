@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tbl_pendaftar">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -17,7 +17,7 @@
                                         <th>Tanggal Claim</th>
                                         <th>Barang</th>
                                         <th>Tipe Barang</th>
-                                        <th>Serial</th>
+                                        <th>Token</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -28,8 +28,18 @@
 	                                		if ($key['VERIFIKASI'] == 1) {
 	                                			$verifikasi = "";
 	                                		} else {
-	                                			$verifikasi = "<a href='".base_url('index.php/verifikasi/')."'><button class='btn btn-success'>Claim</button></a>";
-	                                		}
+	                                			$verifikasi = "<a href='".base_url('index.php/verifikasi/?id='.$key['PENDAFTARID'])."'><button class='btn btn-warning'>Claim</button></a>";
+                                            }
+
+                                            if ($key['PROGRESSID'] == 1) {
+	                                			$progress = "<a href='".base_url('index.php/progress/?progressid=2&pendaftarid='.$key['PENDAFTARID'])."'><button class='btn btn-warning'>Tarik Barang</button></a>";
+	                                		} elseif($key['PROGRESSID'] == 2) {
+                                                $progress = "<a href='".base_url('index.php/progress/?progressid=3&pendaftarid='.$key['PENDAFTARID'])."'><button class='btn btn-warning'>Pengemasan</button></a>";
+	                                		} elseif($key['PROGRESSID'] == 3) {
+                                                $progress = "<a href='".base_url('index.php/progress/?progressid=4&pendaftarid='.$key['PENDAFTARID'])."'><button class='btn btn-warning'>Dlm Perjalanan</button></a>";
+	                                		} elseif($key['PROGRESSID'] == 4) {
+                                                $progress = "<button disabled class='btn btn-success'>Terkirim</button>";
+	                                		} 
                                 			echo "
                                 				<tr>
                                 					<td>".$i++."</td>
@@ -41,7 +51,7 @@
                                 					<td>".$key['BARANG']."</td>
                                 					<td>".$key['TIPE']."</td>
                                 					<td>".$key['TOKEN']."</td>
-                                					<td>".$verifikasi."</td>
+                                					<td>".$verifikasi.' '.$progress."</td>
                                 				</tr>
                                 			";
                                 		}
@@ -55,3 +65,12 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+
+    var table = $("#tbl_pendaftar").DataTable();   
+    $('#tbl_pendaftar tbody').on( 'click', 'tr', function () {
+        console.log( table.row( this ).data() );
+    });
+
+</script>
